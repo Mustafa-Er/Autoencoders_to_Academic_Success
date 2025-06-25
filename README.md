@@ -1,22 +1,89 @@
 # Autoencoders_to_Academic_Success
 
-## About DataSet
-The dataset for this competition (both train and test) was generated from a deep learning model trained on the Predict Students' Dropout and Academic Success dataset. Feature distributions are close to, but not exactly the same, as the original. Feel free to use the original dataset as part of this competition, both to explore differences as well as to see whether incorporating the original in training improves model performance. Please refer to the original dataset for feature feature explanations.
+🎓 Student Academic Risk Prediction
+📘 Project Overview
+The goal of this project is to predict the academic risk of students in higher education by using machine learning models. This is a multi-class classification problem where the target label can be:
 
-Files
-train.csv - the training dataset; Target is the categorical target
-test.csv - the test dataset; your objective is to predict the class of Target for each row
-sample_submission.csv - a sample submission file in the correct format
+Dropout
 
-## Techniques
-- EDA
-- Dimensionality Reduction: AutoEncoders
-- Modelling: XGBOOST, Feed Forward Neural Network
+Enrolled
 
-## Used Programs and Modules
-- Python, Pandas, Numpy, Matplotlib, Seaborn, Tensorflow, Keras
+Graduate
 
-## Results
+The data originates from a project aimed at reducing academic failure and dropout rates in higher education through early-stage risk detection.
 
-I got around 80% accuracy score
+📊 Dataset Description
+Instances: Each row represents a student.
 
+Features: Include demographic, academic, socio-economic, and institutional characteristics known at the time of enrollment.
+
+Target Variable: A 3-class categorical variable indicating the academic outcome.
+
+The dataset contains no missing values and all features are well-documented.
+
+🔍 Exploratory Data Analysis (EDA)
+Key insights gathered from count plots and feature distributions:
+
+Categorical Feature Observations:
+Marital Status: Singles mostly graduated; married and divorced students had a higher dropout rate.
+
+Application Order: First-choice applicants mostly graduated.
+
+Daytime/Evening Attendance: Evening students are more likely to drop out.
+
+Displaced Students: Non-displaced students dropped more; displaced students mostly graduated.
+
+Debtor Status: Debtors had a much higher dropout rate.
+
+Tuition Fee Up-to-date: Students with unpaid fees were more likely to drop out.
+
+Gender: Female students had higher graduation rates.
+
+Scholarship Holder: Scholarship students showed significantly better academic outcomes.
+
+Numerical Feature Observations:
+Features with strong class separation:
+
+Curricular units 1st/2nd sem (grade/approved/evaluations):
+
+Dropout students are clustered around 0.
+
+Graduated students are clustered around 13 on grades and approved units.
+
+📌 Feature Engineering
+✅ Removed Features (due to high correlation):
+Curricular units 1st sem (grade)
+
+Curricular units 1st sem (credited)
+
+Curricular units 1st sem (enrolled)
+
+Curricular units 1st sem (evaluations)
+
+Curricular units 2nd sem (approved)
+
+🧬 Dimensionality Reduction with Autoencoder
+Applied Autoencoder only on continuous features (excluding categorical features).
+
+Scaled features before reduction.
+
+Reduced dimensions from 13 to 4.
+
+Successfully preserved structural integrity (as shown in reconstruction plot).
+
+🧠 Models Used
+🔷 1. XGBoost Classifier
+⏱ Training Time: ~608 seconds
+
+✅ Validation Accuracy: 78.84%
+
+🔶 2. Feed Forward Neural Network (FFNN)
+⏱ Training Time: ~448 seconds
+
+✅ Validation Accuracy: 79.29%
+
+🖼 Visualizations
+Autoencoder Reconstruction Sample
+
+💡 Conclusion
+Both XGBoost and Feed Forward Neural Network models achieved high accuracy. The insights from EDA strongly align with the model behavior, showing the importance of academic performance and socio-economic factors in predicting student outcomes.
