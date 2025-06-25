@@ -10,7 +10,6 @@ Enrolled
 
 Graduate
 
-
 The data originates from a project aimed at reducing academic failure and dropout rates in higher education through early-stage risk detection.
 
 
