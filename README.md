@@ -10,7 +10,9 @@ Enrolled
 
 Graduate
 
+
 The data originates from a project aimed at reducing academic failure and dropout rates in higher education through early-stage risk detection.
+
 
 📊 Dataset Description
 Instances: Each row represents a student.
@@ -21,8 +23,12 @@ Target Variable: A 3-class categorical variable indicating the academic outcome.
 
 The dataset contains no missing values and all features are well-documented.
 
+
+
 🔍 Exploratory Data Analysis (EDA)
 Key insights gathered from count plots and feature distributions:
+
+
 
 Categorical Feature Observations:
 Marital Status: Singles mostly graduated; married and divorced students had a higher dropout rate.
@@ -41,6 +47,8 @@ Gender: Female students had higher graduation rates.
 
 Scholarship Holder: Scholarship students showed significantly better academic outcomes.
 
+
+
 Numerical Feature Observations:
 Features with strong class separation:
 
@@ -49,6 +57,9 @@ Curricular units 1st/2nd sem (grade/approved/evaluations):
 Dropout students are clustered around 0.
 
 Graduated students are clustered around 13 on grades and approved units.
+
+
+
 
 📌 Feature Engineering
 ✅ Removed Features (due to high correlation):
@@ -62,6 +73,9 @@ Curricular units 1st sem (evaluations)
 
 Curricular units 2nd sem (approved)
 
+
+
+
 🧬 Dimensionality Reduction with Autoencoder
 Applied Autoencoder only on continuous features (excluding categorical features).
 
@@ -70,6 +84,10 @@ Scaled features before reduction.
 Reduced dimensions from 13 to 4.
 
 Successfully preserved structural integrity (as shown in reconstruction plot).
+
+![image](https://github.com/user-attachments/assets/6f46e807-8463-4bda-819d-e3881f681f55)
+
+
 
 🧠 Models Used
 🔷 1. XGBoost Classifier
@@ -82,8 +100,8 @@ Successfully preserved structural integrity (as shown in reconstruction plot).
 
 ✅ Validation Accuracy: 79.29%
 
-🖼 Visualizations
-Autoencoder Reconstruction Sample
+
+
 
 💡 Conclusion
 Both XGBoost and Feed Forward Neural Network models achieved high accuracy. The insights from EDA strongly align with the model behavior, showing the importance of academic performance and socio-economic factors in predicting student outcomes.
