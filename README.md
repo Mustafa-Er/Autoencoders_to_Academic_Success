@@ -63,6 +63,7 @@ Graduated students are clustered around 13 on grades and approved units.
 
 📌 Feature Engineering
 ✅ Removed Features (due to high correlation):
+
 Curricular units 1st sem (grade)
 
 Curricular units 1st sem (credited)
@@ -86,6 +87,7 @@ Reduced dimensions from 13 to 4.
 Successfully preserved structural integrity (as shown in reconstruction plot).
 
 ![image](https://github.com/user-attachments/assets/6f46e807-8463-4bda-819d-e3881f681f55)
+
 
 
 
