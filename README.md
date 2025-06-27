@@ -82,7 +82,4 @@ The data originates from a project aimed at reducing academic failure and dropou
 Both **XGBoost** and the **Feed Forward Neural Network** achieved high validation accuracy, confirming the strength of the features and preprocessing.  
 Insights from EDA, such as academic performance and socio-economic indicators, were strongly aligned with model predictions, showing their importance in predicting student academic outcomes.
 
----
-
-Let me know if you'd like to add model training code, a confusion matrix, or performance plots!
 
