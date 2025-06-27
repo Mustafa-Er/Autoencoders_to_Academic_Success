@@ -1,108 +1,88 @@
-# Autoencoders_to_Academic_Success
+# 🎓 Student Academic Risk Prediction
 
-🎓 Student Academic Risk Prediction
-📘 Project Overview
-The goal of this project is to predict the academic risk of students in higher education by using machine learning models. This is a multi-class classification problem where the target label can be:
+## 📘 Project Overview
 
-Dropout
+The goal of this project is to **predict the academic risk of students** in higher education using machine learning.  
+This is a **multi-class classification** problem where the target label can be:
 
-Enrolled
+- `Dropout`
+- `Enrolled`
+- `Graduate`
 
-Graduate
+The data originates from a project aimed at reducing academic failure and dropout rates through early-stage risk detection and intervention.
 
-The data originates from a project aimed at reducing academic failure and dropout rates in higher education through early-stage risk detection.
+---
 
+## 📊 Dataset Description
 
-📊 Dataset Description
-Instances: Each row represents a student.
+- **Instances**: Each row represents a student.
+- **Features**: Demographic, academic, socio-economic, and institutional characteristics known at enrollment.
+- **Target Variable**: A 3-class categorical variable representing the academic outcome.
+- ✅ No missing values — all features are clean and well-documented.
 
-Features: Include demographic, academic, socio-economic, and institutional characteristics known at the time of enrollment.
+---
 
-Target Variable: A 3-class categorical variable indicating the academic outcome.
+## 🔍 Exploratory Data Analysis (EDA)
 
-The dataset contains no missing values and all features are well-documented.
+### 🧩 Categorical Feature Insights
 
+- **Marital Status**: Singles mostly graduated; married/divorced students had higher dropout rates.
+- **Application Order**: First-choice applicants mostly graduated.
+- **Attendance Time**: Evening students are more likely to drop out.
+- **Displaced Students**: Displaced students mostly graduated.
+- **Debtor Status**: Debtors showed significantly higher dropout risk.
+- **Tuition Payment**: Unpaid tuition correlated with dropout.
+- **Gender**: Female students had higher graduation rates.
+- **Scholarship Holders**: Significantly better academic performance.
 
+### 📈 Numerical Feature Insights
 
-🔍 Exploratory Data Analysis (EDA)
-Key insights gathered from count plots and feature distributions:
+- **Curricular Units (1st/2nd Semester)**:
+  - Dropout students clustered near `0` on grades/approvals.
+  - Graduated students clustered near `13`.
 
+---
 
+## 📌 Feature Engineering
 
-Categorical Feature Observations:
-Marital Status: Singles mostly graduated; married and divorced students had a higher dropout rate.
+### ✅ Removed Highly Correlated Features:
 
-Application Order: First-choice applicants mostly graduated.
+| Removed Feature                        | Reason         |
+|----------------------------------------|----------------|
+| Curricular units 1st sem (grade)       | High correlation |
+| Curricular units 1st sem (credited)    | High correlation |
+| Curricular units 1st sem (enrolled)    | High correlation |
+| Curricular units 1st sem (evaluations) | High correlation |
+| Curricular units 2nd sem (approved)    | High correlation |
 
-Daytime/Evening Attendance: Evening students are more likely to drop out.
+---
 
-Displaced Students: Non-displaced students dropped more; displaced students mostly graduated.
+## 🧬 Dimensionality Reduction with Autoencoder
 
-Debtor Status: Debtors had a much higher dropout rate.
+- Applied on **continuous features** only.
+- Features were **scaled** before input to the autoencoder.
+- Reduced **13 dimensions to 4**.
+- Structure and variance were preserved, as validated by reconstruction error plots.
 
-Tuition Fee Up-to-date: Students with unpaid fees were more likely to drop out.
+![Autoencoder Reconstruction](https://github.com/user-attachments/assets/6f46e807-8463-4bda-819d-e3881f681f55)
 
-Gender: Female students had higher graduation rates.
+---
 
-Scholarship Holder: Scholarship students showed significantly better academic outcomes.
+## 🧠 Models Used
 
+| **Model**                    | **Training Time** | **Validation Accuracy** |
+|------------------------------|-------------------|--------------------------|
+| XGBoost Classifier           | ~608 seconds      | **78.84%**               |
+| Feed Forward Neural Network  | ~448 seconds      | **79.29%**               |
 
+---
 
-Numerical Feature Observations:
-Features with strong class separation:
+## 💡 Conclusion
 
-Curricular units 1st/2nd sem (grade/approved/evaluations):
+Both **XGBoost** and the **Feed Forward Neural Network** achieved high validation accuracy, confirming the strength of the features and preprocessing.  
+Insights from EDA, such as academic performance and socio-economic indicators, were strongly aligned with model predictions, showing their importance in predicting student academic outcomes.
 
-Dropout students are clustered around 0.
+---
 
-Graduated students are clustered around 13 on grades and approved units.
+Let me know if you'd like to add model training code, a confusion matrix, or performance plots!
 
-
-
-
-📌 Feature Engineering
-✅ Removed Features (due to high correlation):
-
-Curricular units 1st sem (grade)
-
-Curricular units 1st sem (credited)
-
-Curricular units 1st sem (enrolled)
-
-Curricular units 1st sem (evaluations)
-
-Curricular units 2nd sem (approved)
-
-
-
-
-🧬 Dimensionality Reduction with Autoencoder
-Applied Autoencoder only on continuous features (excluding categorical features).
-
-Scaled features before reduction.
-
-Reduced dimensions from 13 to 4.
-
-Successfully preserved structural integrity (as shown in reconstruction plot).
-
-![image](https://github.com/user-attachments/assets/6f46e807-8463-4bda-819d-e3881f681f55)
-
-
-
-
-🧠 Models Used
-🔷 1. XGBoost Classifier
-⏱ Training Time: ~608 seconds
-
-✅ Validation Accuracy: 78.84%
-
-🔶 2. Feed Forward Neural Network (FFNN)
-⏱ Training Time: ~448 seconds
-
-✅ Validation Accuracy: 79.29%
-
-
-
-
-💡 Conclusion
-Both XGBoost and Feed Forward Neural Network models achieved high accuracy. The insights from EDA strongly align with the model behavior, showing the importance of academic performance and socio-economic factors in predicting student outcomes.
